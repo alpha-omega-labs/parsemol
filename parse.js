@@ -4,7 +4,7 @@ import { stringify } from 'csv-stringify/sync'
 import { from, BehaviorSubject } from 'rxjs'
 import { buffer, tap, filter } from 'rxjs/operators'
 
-const [ last, current ] = [ new BehaviorSubject, new BehaviorSubject]
+const [ last, current ] = [ new BehaviorSubject, new BehaviorSubject ]
 
 from(readline.createInterface({
   input: process.stdin
