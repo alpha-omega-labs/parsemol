@@ -4,14 +4,11 @@ import { stringify } from 'csv-stringify/sync'
 import { from, BehaviorSubject } from 'rxjs'
 import { buffer, tap, filter } from 'rxjs/operators'
 
-const last = new BehaviorSubject
-const current = new BehaviorSubject
+const [ last, current ] = [ new BehaviorSubject, new BehaviorSubject]
 
-const rl = readline.createInterface({
+from(readline.createInterface({
   input: process.stdin
-})
-
-from(rl)
+}))
 .pipe(...[
   tap(line => {
     last.next(current.getValue())
