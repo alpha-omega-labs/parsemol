@@ -12,11 +12,15 @@ from(readline.createInterface({
 .pipe(...[
   map(line => {
     last.next(current.getValue())
-    if (line.match(/^\++$/)) {
+
+    if (line.match(/^[\+\-]+$/)) {
+    } else if (line.match(/^\[ID\]$/)) {
       current.next()
+      return line
     } else {
       return line
     }
+
   }),
   filter(Boolean),
   buffer(current),
